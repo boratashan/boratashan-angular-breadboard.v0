@@ -1,3 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
 
+/*@import "tailwindcss";
+
 @import "tailwindcss";
+
+
+@plugin "@tailwindcss/forms";
+*/
+
+
+@use '@carbon/styles/scss/config' with (
+	$use-flexbox-grid: true,
+	$font-path: '@ibm/plex'
+);
+
+@use '@carbon/styles';
+
+html {
+	@include styles.theme(styles.$white);
+}
+
+:root {
+  --primary-color: #605DC8;
+  --secondary-color: #8B89E6;
+  --accent-color: #e8e7fa;
+  --shadow-color: #E8E8E8;
+}
+button.primary {
+  padding: 10px;
+  border: solid 1px var(--primary-color);
+  background: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+}
