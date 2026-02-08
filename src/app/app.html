@@ -345,11 +345,51 @@
 
 <app-user-form />
 
+<<<<<<< HEAD
 <main>
   <button class="btn-macos">Click me</button>
   <section class="content">
     <router-outlet />
   </section>
 </main>
+=======
+      <a [routerLink]="['/']">
+        <header class="brand-name">
+          <img class="brand-logo" src="/public/logo.svg" alt="logo" aria-hidden="true" />
+        </header>
+      </a>
+      <button hlmBtn>Button Spartan</button>
+      <div hlmItem>
+			<div hlmItemContent>
+				<div hlmItemTitle>Default Variant</div>
+				<p hlmItemDescription>Standard styling with subtle background and borders.</p>
+			</div>
+			<div hlmItemActions>
+				<button hlmBtn variant="outline" size="sm">Open</button>
+			</div>
+		</div>
+		<div hlmItem variant="outline">
+			<div hlmItemContent>
+				<div hlmItemTitle>Outline Variant</div>
+				<p hlmItemDescription>Outlined style with clear borders and transparent background.</p>
+			</div>
+			<div hlmItemActions>
+				<button hlmBtn variant="outline" size="sm">Open</button>
+			</div>
+		</div>
+		<div hlmItem variant="muted">
+			<div hlmItemContent>
+				<div hlmItemTitle>Muted Variant</div>
+				<p hlmItemDescription>Subdued appearance with muted colors for secondary content.</p>
+			</div>
+			<div hlmItemActions>
+				<button hlmBtn variant="outline" size="sm">Open</button>
+			</div>
+		</div>
+      <section class="content">
+        <router-outlet />
+      </section>
+    </main>
+>>>>>>> 96a052742acfd23dc787b13b79b1e5cd915f7572
 
 <router-outlet />
