@@ -339,19 +339,17 @@
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
- <title>Homes</title>
+<title>Homes</title>
 
-    <main>
+<app-header />
 
+<app-user-form />
 
-      <a [routerLink]="['/']">
-        <header class="brand-name">
-          <img class="brand-logo" src="/public/logo.svg" alt="logo" aria-hidden="true" />
-        </header>
-      </a>
-      <section class="content">
-        <router-outlet />
-      </section>
-    </main>
+<main>
+  <button class="btn-macos">Click me</button>
+  <section class="content">
+    <router-outlet />
+  </section>
+</main>
 
 <router-outlet />

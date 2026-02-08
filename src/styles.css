@@ -9,15 +9,14 @@
 */
 
 
-@use '@carbon/styles/scss/config' with (
-	$use-flexbox-grid: true,
-	$font-path: '@ibm/plex'
+@use '@carbon/styles/scss/config' with ($use-flexbox-grid: true,
+  $font-path: '@ibm/plex'
 );
 
 @use '@carbon/styles';
 
 html {
-	@include styles.theme(styles.$white);
+  @include styles.theme(styles.$white);
 }
 
 :root {
@@ -26,10 +25,122 @@ html {
   --accent-color: #e8e7fa;
   --shadow-color: #E8E8E8;
 }
+
 button.primary {
   padding: 10px;
   border: solid 1px var(--primary-color);
   background: var(--primary-color);
   color: white;
   border-radius: 8px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* MacOS / Carbon Implementation                                              */
+/* -------------------------------------------------------------------------- */
+
+/* 1. Window Controls ("Traffic Lights") */
+.macos-traffic-lights {
+  display: flex;
+  gap: 8px;
+  padding: 0;
+  align-items: center;
+}
+
+.macos-traffic-lights span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+  /* Subtle rim */
+}
+
+.macos-traffic-lights .close {
+  background-color: #ff5f56;
+}
+
+.macos-traffic-lights .minimize {
+  background-color: #ffbd2e;
+}
+
+.macos-traffic-lights .maximize {
+  background-color: #27c93f;
+}
+
+/* Hover effects for the dots (symbols appear) - Optional advanced polish */
+.macos-traffic-lights:hover .close::before,
+.macos-traffic-lights:hover .minimize::before,
+.macos-traffic-lights:hover .maximize::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 12px;
+  font-size: 8px;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+/* 2. System Buttons (Modern MacOS "Big Sur" Style) */
+.btn-macos {
+  appearance: none;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+
+  color: #ffffff;
+  background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
+  /* Subtle gradient */
+  border: 1px solid #205FD3;
+  /* slightly darker border */
+  border-top-color: #4C93F7;
+  /* lighter top border for depth */
+
+  border-radius: 6px;
+  padding: 4px 14px;
+  line-height: 20px;
+  cursor: pointer;
+
+  box-shadow:
+    0 1px 1px 0 rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+
+  transition: all 0.1s ease-out;
+  user-select: none;
+}
+
+/* Hover State */
+.btn-macos:hover {
+  background: linear-gradient(180deg, #4086F4 0%, #296DF3 100%);
+  border-color: #1A56C6;
+}
+
+/* Active / Pressed State */
+.btn-macos:active {
+  background: #2565E7;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+  border-color: #164BB0;
+  transform: translateY(0.5px);
+}
+
+/* Secondary / White Variant */
+.btn-macos.secondary {
+  color: #333333;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F6F6F6 100%);
+  border: 1px solid #D1D1D1;
+  border-top-color: #DCDCDC;
+  box-shadow:
+    0 1px 1px 0 rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+}
+
+.btn-macos.secondary:hover {
+  background: linear-gradient(180deg, #F6F6F6 0%, #ECECEC 100%);
+}
+
+.btn-macos.secondary:active {
+  background: #EBEBEB;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
 }
